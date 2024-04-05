@@ -65,7 +65,7 @@ functions:
 After successful deployment, you can invoke the deployed function by using the following command:
 
 ```bash
-serverless invoke --function hello
+serverless invoke --function generateDocument --data '{"name":"John Wick"}'
 ```
 
 Which should result in response similar to the following:
@@ -73,7 +73,10 @@ Which should result in response similar to the following:
 ```json
 {
   "statusCode": 200,
-  "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
+  "body": "...",
+  "headers": {
+    "Content-Type": "application/json"
+  }
 }
 ```
 
@@ -82,14 +85,17 @@ Which should result in response similar to the following:
 You can invoke your function locally by using the following command:
 
 ```bash
-serverless invoke local --function hello
+npx serverless invoke local --function generateDocument --data '{"name":"John Wick"}'
 ```
 
 Which should result in response similar to the following:
 
-```
+```json
 {
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
+  "statusCode": 200,
+  "body": "...",
+  "headers": {
+    "Content-Type": "application/json"
+  }
 }
 ```
