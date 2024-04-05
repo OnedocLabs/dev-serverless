@@ -1,0 +1,17 @@
+service: onedoc-serverless
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+    - "*.ts"
+
+functions:
+  generateDocument:
+    handler: index.handler
